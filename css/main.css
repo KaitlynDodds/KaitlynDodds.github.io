@@ -54,6 +54,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	color: #74B8E0;
+} 
+
 
 /* Wrapper Styling
 ********************/
@@ -80,12 +84,12 @@ a {
 .heading h1 {
 	padding-bottom: 13px;
 	margin-bottom: 13px;
-	border-bottom: solid 1px #9DBEBB; 
+	border-bottom: solid 1px #74B8E0;
 }
 
 .projects-heading h2 {
 	text-align: center;
-	border-top: solid 1px #9DBEBB; 
+	border-top: solid 1px #74B8E0;
 	padding-top: 13px;
 	margin-top: 13px;
 }
@@ -126,6 +130,10 @@ a {
 
 .project span {
 	font-size: 1.1em;
+}
+
+.project span a:hover {
+	color: #74B8E0;
 }
 
 .project span:first-of-type::after {
