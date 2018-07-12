@@ -77,7 +77,8 @@ a:hover {
 }
 
 .heading h1,
-.projects-heading h2 {
+.projects-heading h2,
+.additional-work-heading h2 {
 	text-shadow: 0px 0px 1px rgba(0,0,0,0.30);
 }
 
@@ -87,7 +88,8 @@ a:hover {
 	border-bottom: solid 1px #74B8E0;
 }
 
-.projects-heading h2 {
+.projects-heading h2,
+.additional-work-heading h2 {
 	text-align: center;
 	border-top: solid 1px #74B8E0;
 	padding-top: 13px;
@@ -193,12 +195,14 @@ a:hover {
 @media all and (min-width: 736px) { 
 
 	.heading,
-	.projects-heading h2 {
+	.projects-heading h2,
+	.additional-work-heading h2 {
 		text-align: left;
 	} 
 
 	.heading h1,
-	.projects-heading h2 {
+	.projects-heading h2,
+	.additional-work-heading h2 {
 		padding-left: 10px;
 	}
 
