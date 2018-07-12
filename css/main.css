@@ -188,6 +188,11 @@ a {
 		text-align: left;
 	} 
 
+	.heading h1,
+	.projects-heading h2 {
+		padding-left: 10px;
+	}
+
 	.heading {
 		margin-bottom: 20px;
 	}
