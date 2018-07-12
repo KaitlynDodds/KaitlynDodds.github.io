@@ -1,7 +1,6 @@
 
 /* AJAX GET Repository Info
 ****************************/
-
 	
 $.ajax({
 	method: "GET",
@@ -10,9 +9,32 @@ $.ajax({
 	  	handleRepoData(data);
 	},
 	error: (err) => {
-		console.log(`Error: ${err.Message}`);
+		console.log(`Error: ${err.message}`);
 	}
 });
+
+
+/* Build UI Functions
+****************************/
+
+/* Project Div Layout *
+<div class="project">
+	<h3>
+		[PROJECT NAME]
+	</h3>
+	<div>
+		<span>
+			<a href="[GITHUB REPO LINK]">code</a>
+		</span>
+		<span>
+			<a href="[ACTIVE SITE LINK]">site</a>
+		</span>
+	</div>
+	<p>
+		[PROJECT DESCRIPTION]
+	</p>
+</div>
+*/
 
 function handleRepoData(dataArr) {
 	// take first 20 repos 
@@ -29,42 +51,19 @@ function handleRepoData(dataArr) {
 	}
 }
 
-/*
-<div class="project">
-	<h3>
-		guess-the-phrase-game
-	</h3>
-	<div>
-		<span><a href="">code</a></span><span><a href="">site</a></span>
-	</div>
-	<p>
-		Fun guess the phrase game (mimics wheel of fortune) created in html, css, and vanilla js.
-	</p>
-</div>
-*/
-
 function createProjectDiv(repoObj) {
-	// project name
-	const projectName = repoObj.name;
-	// url to github code
-	const projectCodeUrl = repoObj.html_url;
-	// url to site (if available)
-	// TODO
-	// description
-	const projectDesc = repoObj.description;
-
 	// create project div 
 	const projectDiv = $('<div>');
 	projectDiv.addClass('project');
 
 	// create h3 
-	const nameH3 = $(`<h3>${projectName}</h3>`);
-
-	// create p desc
-	const descriptionPara = $(`<p>${projectDesc}</p>`);
+	const nameH3 = $(`<h3>${repoObj.name}</h3>`);
 
 	// create code and site links
-	const linksDiv = $(`<div><span><a href="${projectCodeUrl}">code</a></span><span><a href="">site</a></span></div>`);
+	const linksDiv = $(`<div><span><a href="${repoObj.html_url}">code</a></span><span><a href="">site</a></span></div>`);
+
+	// create p desc
+	const descriptionPara = $(`<p>${(repoObj.description ? repoObj.description : "")}</p>`);
 
 	// add to projectDiv
 	nameH3.appendTo(projectDiv);
