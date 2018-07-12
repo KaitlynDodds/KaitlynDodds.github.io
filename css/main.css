@@ -111,23 +111,18 @@ a {
 
 .project h3 {
 	color: #DE6E4B;
+	margin-bottom: 7px;
 }
 
-.project h3 span a {
+.project span a {
 	color: #D1D1D1;
 }
 
-.project h3 span {
-	font-size: .7em;
-	padding: 0;
-	margin: 0;
+.project span {
+	font-size: 1.1em;
 }
 
-.project h3 span:first-of-type {
-	margin-left: 15px;
-} 
-
-.project h3 span:first-of-type::after {
+.project span:first-of-type::after {
 	content: "";
 	display: inline-block;
 	background-color: #D1D1D1;
@@ -140,7 +135,7 @@ a {
 }
 
 .project p {
-	font-size: .8em; 
+	font-size: .9em; 
 	color: #7E7A8C;
 }
 
