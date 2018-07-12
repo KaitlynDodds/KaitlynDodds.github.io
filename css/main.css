@@ -1,0 +1,82 @@
+/*
+Colors:
+	#468189 (dark teal blue)
+	#9DBEBB (light blue)
+	#343330 (gun metal gray)
+	#DE6E4B (orange accent)
+*/
+
+/* Element Styling
+********************/
+
+h1,
+p {
+	color: #343330;
+}
+
+span,
+a {
+	color: #7E7A8C;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-family: 'PT Serif Caption', serif;
+}
+
+p {
+	font-family: 'Lora', serif;
+	line-height: 1.5em;
+	font-size: 1.2em;
+}
+
+i {
+	color: #DE6E4B;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+/* Styling
+********************/
+
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.heading {
+	text-align: center; 
+}
+
+.heading h1 {
+	border-bottom: solid 1px #9DBEBB; 
+	padding-bottom: 13px;
+	margin-bottom: 13px;
+}
+
+.heading p:first-of-type {
+	margin: 25px 0;
+}
+
+.heading div {
+	font-size: .9em; 
+}
+
+.heading div span:first-of-type {
+	margin-right: 13px;
+}
+
+.heading div span i {
+	margin-right: 4px;
+}
+
+
+/* Accent Styling
+********************/
+
+.org-accent {
+	color: #DE6E4B;
+}
