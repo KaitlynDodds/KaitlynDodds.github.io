@@ -104,6 +104,7 @@ a:hover {
 
 .heading div span:first-of-type {
 	margin-right: 13px;
+	padding-left: 10px;
 }
 
 .heading div span i {
@@ -116,7 +117,7 @@ a:hover {
 **********************/
 
 .project {
-	margin: 30px 0;
+	margin: 45px 0 30px;
 }
 
 .project h3 {
