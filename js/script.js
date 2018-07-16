@@ -60,7 +60,7 @@ function createProjectDiv(repoObj) {
 	const nameH3 = $(`<h3>${repoObj.name}</h3>`);
 
 	// create code and site links
-	const linksDiv = $(`<div><span><a href="${repoObj.html_url}">code</a></span><span><a href="">site</a></span></div>`);
+	const linksDiv = $(`<div><span><a href="${repoObj.html_url}">code</a></span><span class="${(repoObj.homepage ? "" : "strike")}"><a href="${repoObj.homepage}">site</a></span></div>`);
 
 	// create p desc
 	const descriptionPara = $(`<p>${(repoObj.description ? repoObj.description : "")}</p>`);
