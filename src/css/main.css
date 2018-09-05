@@ -6,6 +6,16 @@ Colors:
 	#DE6E4B (orange accent)
 */
 
+@font-face {
+	font-family: 'PT Serif Caption';
+	src: url('../fonts/PT_Serif-Caption-Web-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Lora';
+	src: url('../fonts/Lora-Regular.ttf') format('truetype');
+}
+
 /* Element Styling
 ********************/
 
