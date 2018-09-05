@@ -9,14 +9,26 @@ var uglify      = composer(uglifyes, console);
 var nano        = require('gulp-cssnano');
 var del         = require('del');
 var browserSync = require('browser-sync').create();
+var sass        = require('gulp-sass');
+var maps        = require('gulp-sourcemaps');
 
 var options = {
-    src: 'src',
-    dist: 'dist'
+    src: 'src/',
+    dist: 'dist/'
 };
 
+/* General Tasks
+*****************/
 
-gulp.task('browserSync', function() {
+gulp.task('clean', function() {
+    return del([options.dist]);
+});
+
+
+/* Dev Tasks
+*************/
+
+gulp.task('ws', function() {
     browserSync.init({
         server: {
             baseDir: options.src
@@ -24,19 +36,38 @@ gulp.task('browserSync', function() {
     });
 });
 
-gulp.task('watch', function() {
+gulp.task('compileSass', function() {
+    return gulp.src(options.src + 'scss/application.scss')
+    .pipe(maps.init())
+    .pipe(sass())
+    .pipe(maps.write('./'))
+    .pipe(gulp.dest(options.src + 'css'))
+    .pipe(browserSync.stream())
+});
+
+gulp.task('watch:styles', function() {
+    gulp.watch(options.src + 'scss/**/*.scss', gulp.series('compileSass'));
     
 });
 
-gulp.task('clean', function() {
-    return del([options.dist]);
-});
+gulp.task('watch:code', function() {
+    gulp.watch(options.src + '*.html').on('change', browserSync.reload);
+})
+
+gulp.task('watch:all', gulp.parallel(
+    'watch:code', 'watch:styles'
+));
+
+gulp.task('watch', gulp.parallel(
+    'ws', 'watch:all'
+));
+
 
 /* Prod Build Tasks
 ********************/
 
 gulp.task('html:prod', function() {
-    return gulp.src(options.src + '/index.html')
+    return gulp.src(options.src + 'index.html')
             .pipe(useref())
             .pipe(gulpif('*.js', uglify()))
             .pipe(gulpif('*.css', nano()))
@@ -45,8 +76,8 @@ gulp.task('html:prod', function() {
 
 gulp.task('fonts:prod', function() {
     return gulp.src([
-                options.src + '/fonts/**' ], 
-                {base: 'src/'})
+                options.src + 'fonts/**' ], 
+                {base: options.src })
             .pipe(gulp.dest(options.dist));
 });
 
