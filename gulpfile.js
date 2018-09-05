@@ -8,11 +8,32 @@ var composer    = require('gulp-uglify/composer');
 var uglify      = composer(uglifyes, console);
 var nano        = require('gulp-cssnano');
 var del         = require('del');
+var browserSync = require('browser-sync').create();
 
 var options = {
     src: 'src',
     dist: 'dist'
 };
+
+
+gulp.task('browserSync', function() {
+    browserSync.init({
+        server: {
+            baseDir: options.src
+        }
+    });
+});
+
+gulp.task('watch', function() {
+    
+});
+
+gulp.task('clean', function() {
+    return del([options.dist]);
+});
+
+/* Prod Build Tasks
+********************/
 
 gulp.task('html:prod', function() {
     return gulp.src(options.src + '/index.html')
@@ -32,10 +53,6 @@ gulp.task('fonts:prod', function() {
 gulp.task('all:prod', gulp.parallel(
     'html:prod', 'fonts:prod'
 ));
-
-gulp.task('clean', function() {
-    return del([options.dist]);
-});
 
 gulp.task('build:prod', gulp.series('clean', 'all:prod'));
 

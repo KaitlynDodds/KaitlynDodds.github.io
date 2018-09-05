@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KaitlynDodds/KaitlynDodds.github.io#readme",
   "devDependencies": {
+    "browser-sync": "^2.24.7",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-cssnano": "^2.1.3",
